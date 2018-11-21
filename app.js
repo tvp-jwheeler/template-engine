@@ -19,7 +19,6 @@ app.get('/', (req, res) => res.send('Hello World!'));
 app.put('/api/render/*', function (req, res) {
     const page_data = req.body;
     const template_path = req.params[0];
-
     fs.readFile('./templates/' + template_path, {encoding: 'utf-8'}, function(err, contents) {
         var template = Handlebars.compile(contents);
         var result = template(page_data);
